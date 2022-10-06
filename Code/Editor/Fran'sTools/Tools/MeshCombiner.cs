@@ -144,7 +144,16 @@ public class MeshCombiner : Editor
 
         Mesh finalMesh = new Mesh();
 
-        finalMesh.CombineMeshes(combineList.ToArray(), true);
+        try
+        {
+            finalMesh.CombineMeshes(combineList.ToArray(), true);
+        }
+        catch (System.ArgumentException)
+        {
+            //If the combination failed due to the maximum number of vertex being exceeded in the UInt16 index format
+            finalMesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
+            finalMesh.CombineMeshes(combineList.ToArray(), true);
+        }
 
         newGameObject.GetComponent<MeshFilter>().sharedMesh = finalMesh;
 

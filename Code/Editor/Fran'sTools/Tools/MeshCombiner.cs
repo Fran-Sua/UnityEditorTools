@@ -12,7 +12,7 @@ public class MeshCombiner : Editor
     /// <summary>
     /// UI section for the Combine Meshes Tool.
     /// </summary>
-    public void MeshCombinerUI()
+    public void MeshCombiner_UI()
     {
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider); //Horizontal line to start the section
         

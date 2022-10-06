@@ -10,7 +10,7 @@ public class MaterialsReplacement : Editor
     /// <summary>
     /// UI section for the Replace Materials Tool.
     /// </summary>
-    public void ReplaceMaterialsUI()
+    public void ReplaceMaterials_UI()
     {
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider); //Horizontal line to start the section
 

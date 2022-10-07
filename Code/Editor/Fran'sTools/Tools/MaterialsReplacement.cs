@@ -51,6 +51,11 @@ public class MaterialsReplacement : Editor
     /// </summary>
     private static void ReplaceMaterials(string MaterialLibraryPath = "Assets/MaterialsLibrary")
     {
+        if (MaterialLibraryPath.StartsWith(Application.dataPath))
+        {
+            MaterialLibraryPath = "Assets" + MaterialLibraryPath.Substring(Application.dataPath.Length);
+        }
+
         foreach (GameObject GObject in Selection.gameObjects)
         {
             var rendererComponent = GObject.GetComponent<Renderer>();
@@ -64,6 +69,7 @@ public class MaterialsReplacement : Editor
                 for (int i = 0; i < ObjectMaterials.Count; ++i)
                 {
                     string materialName = ObjectMaterials[i].name + ".mat";
+                    //materialName.Replace(" ", "_");
                     var materialPathArray = System.IO.Directory.GetFiles(MaterialLibraryPath, materialName, SearchOption.AllDirectories);
 
                     if (materialPathArray.Length != 0) //if a replacement material was found in the library

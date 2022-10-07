@@ -120,11 +120,8 @@ public class TransformRandomizer : Editor
     {
         foreach (GameObject GObject in Selection.gameObjects)
         {
-            if (GObject.GetComponent<Collider>() != null)
-            {
                 float random = Random.Range(minMultiplier, maxMultiplier);
                 GObject.transform.localScale = GObject.transform.localScale * random;
-            }
         }
     }
 

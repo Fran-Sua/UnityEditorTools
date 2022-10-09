@@ -49,7 +49,7 @@ public class MeshCombiner : Editor
 
 
     /// <summary>
-    /// From the selected objects in the scene, finds wich ones share the same materials list.<br />These objects can be safetely merged to lower drawcalls.
+    /// From the selected objects in the scene, finds which ones share the same materials list.<br />These objects can be safely merged to lower drawcalls.
     /// </summary>
     /// <returns>A list of lists of objects sharing the same materials list. <br /> E.G.: { {BlueSphere, BlueCube} , {PurpleCone, PurpleTorus, PurpleCylinder} }</returns>
     private static List<List<GameObject>> GetObjectsToMerge()
@@ -188,7 +188,7 @@ public class MeshCombiner : Editor
     /// <param name="materialListA">First Material List to compare</param>
     /// <param name="materialListB">Second Material List to compare</param>
     /// <returns>boolean: true if both lists are exactly the same, false otherwise.</returns>
-    public static bool MaterialListEquals(List<Material> materialListA, List<Material> materialListB)
+    private static bool MaterialListEquals(List<Material> materialListA, List<Material> materialListB)
     {
         //if not the same lenght, they are not equals
         if (materialListA.Count != materialListB.Count)

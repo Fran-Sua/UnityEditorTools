@@ -39,7 +39,7 @@ public class TransformRandomizer : Editor
     /// <summary>
     /// UI section for the Position Randomizer tool.
     /// </summary>
-    public void PositionRandomizer_UI()
+    private void PositionRandomizer_UI()
     {
         minPositionDisplacement = EditorGUILayout.FloatField("Min Position Delta:", minPositionDisplacement);
         minPositionDisplacement = Mathf.Min(minPositionDisplacement, maxPositionDisplacement);
@@ -56,7 +56,7 @@ public class TransformRandomizer : Editor
     /// <summary>
     /// UI section for the Rotation Randomizer tool.
     /// </summary>
-    public void RotationRandomizer_UI()
+    private void RotationRandomizer_UI()
     {
         minRotationDelta = EditorGUILayout.FloatField("Min Rotation Delta:", minRotationDelta);
         minRotationDelta = Mathf.Min(minRotationDelta, maxRotationDelta);
@@ -74,7 +74,7 @@ public class TransformRandomizer : Editor
     /// <summary>
     /// UI section for the Scale Randomizer tool.
     /// </summary>
-    public void ScaleRandomizer_UI()
+    private void ScaleRandomizer_UI()
     {
         minScaleMultiplier = EditorGUILayout.FloatField("Min Scale multiplier:", minScaleMultiplier);
         minScaleMultiplier = Mathf.Min(minScaleMultiplier, maxScaleMultiplier); //validate min always being lower or equals to max
@@ -98,7 +98,7 @@ public class TransformRandomizer : Editor
     /// </summary>
     /// <param name="minPositionDelta">Minumum value that the random number can take (Negative numbers allowed)</param>
     /// <param name="maxPositionDelta">Maximum value that the random number can take (Negative numbers allowed)</param>
-    static void RandomizePosition(float minPositionDelta, float maxPositionDelta)
+    private static void RandomizePosition(float minPositionDelta, float maxPositionDelta)
     {
         foreach (GameObject GObject in Selection.gameObjects)
         {
@@ -116,12 +116,12 @@ public class TransformRandomizer : Editor
     /// </summary>
     /// <param name="minMultiplier"> Min multiplier to be applied to all 3 scale axis values</param>
     /// <param name="maxMultiplier"> Min multiplier to be applied to all 3 scale axis values</param>
-    static void RandomizeScale(float minMultiplier, float maxMultiplier)
+    private static void RandomizeScale(float minMultiplier, float maxMultiplier)
     {
         foreach (GameObject GObject in Selection.gameObjects)
         {
-                float random = Random.Range(minMultiplier, maxMultiplier);
-                GObject.transform.localScale = GObject.transform.localScale * random;
+            float random = Random.Range(minMultiplier, maxMultiplier);
+            GObject.transform.localScale = GObject.transform.localScale * random;
         }
     }
 
@@ -131,7 +131,7 @@ public class TransformRandomizer : Editor
     /// </summary>
     /// <param name="minRotationDelta">Minumum value that any random number can take (Negative numbers allowed)</param>
     /// <param name="maxRotationDelta">Maximum value that any random number can take (Negative numbers allowed)</param>
-    static void RandomizeRotation(float minRotationDelta, float maxRotationDelta)
+    private static void RandomizeRotation(float minRotationDelta, float maxRotationDelta)
     {
         foreach (GameObject GObject in Selection.gameObjects)
         {

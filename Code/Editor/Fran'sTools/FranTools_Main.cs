@@ -31,10 +31,10 @@ public class FranTools_Main : EditorWindow
         transformRandomizer.TransformRandomizer_UI();
 
         EditorGUILayout.Space(10.0f);
-        materialsReplacement.ReplaceMaterialsUI();
+        materialsReplacement.ReplaceMaterials_UI();
 
         EditorGUILayout.Space(10.0f);
-        meshCombiner.MeshCombinerUI();
+        meshCombiner.MeshCombiner_UI();
      } 
 
 }
